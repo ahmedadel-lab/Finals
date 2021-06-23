@@ -9,7 +9,6 @@ class Color{
     public String getColor() {
         return color;
     }
-
 }
 
 class Bag{
@@ -70,6 +69,37 @@ class Bag{
         float v2 = b.height * b.width * b.depth;
         return (v1 > v2);
     }
+
+    public boolean canEnclose(Bag b){
+        if(b.width < this.width && b.height < this.height && b.depth < this.depth) return true;
+        else if(b.width < this.height && b.height < this.width && b.depth < this.depth) return true;
+        else if(b.width < this.depth && b.height < this.height && b.depth < this.width) return true;
+        else if(b.width < this.width && b.height < this.depth && b.depth < this.height) return true;
+        else return false;
+    }
+
+    public static int findSmallestBag(Bag[] b, Color colored, boolean wheeled){
+        double smallest = Integer.MAX_VALUE;
+        int index = 0;
+        if(colored == null){
+            for(int i = 0; i < b.length; i++){
+                if(b[i].wheels == wheeled && b[i].getVolume() < smallest){
+                    smallest = b[i].getVolume();
+                    index = i;
+                }
+            }
+        }
+        else{
+            for(int i = 0; i < b.length; i++){
+                if(b[i].wheels == wheeled && b[i].color == colored && b[i].getVolume() < smallest){
+                    smallest = b[i].getVolume();
+                    index = i;
+                }
+            }
+        }
+        return index;
+    }
+
 }
 
 
