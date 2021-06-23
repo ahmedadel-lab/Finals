@@ -1,10 +1,7 @@
 True or False Questions:
 ------------------------
 
-A. (false) : It's true that java arrays allocated dynamically, But notice 	the following:
-	- Array Primitive data types are allocated in RAM
-	- Array of Objects are allocated in Heap
-
+A. (false) : java arrays can be allocated both Statically and Dynamically.
 B. (true)
 C. (true)
 D. (true) : There's four access modifiers in java which are:
