@@ -46,14 +46,51 @@ class Polynomial {
         }
         return res;
     }
+
+    public double[] getCoefficients() {
+        return c;
+    }
+
+    public Polynomial add(Polynomial po){
+        double[] higherDegree;
+        double[] lowerDegree;
+        if(po.getDegree() > getDegree()){
+            higherDegree = po.getCoefficients();
+            lowerDegree = c;
+        }
+        else{
+            higherDegree = c;
+            lowerDegree = po.getCoefficients();
+        }
+
+        double[] coff = new double[higherDegree.length];
+        for(int i = 0; i < lowerDegree.length; i++){
+            coff[i] = higherDegree[i] + lowerDegree[i];
+        }
+        for (int i = lowerDegree.length; i < higherDegree.length; i++) {
+            coff[i] = higherDegree[i];
+        }
+        return new Polynomial(coff);
+    }
+
+    public Polynomial differentiate(){
+        double[] coff = new double[c.length-1];
+        for (int i = 1; i < c.length; i++) {
+            coff[i-1] = c[i] * i;
+        }
+        return new Polynomial(coff);
+    }
 }
 
 public class Q3_16{
-    public static void main(String[] args){
-        double[] cc = {-3, 0, 2, 3}; // f(x) = 2X^(2) + 3
-        Polynomial function = new Polynomial(cc);
-        //System.out.println(function.Evaluate(-2)); // Test Evaluate Method on x = -2
-        //function.print(); // Test print method on signs and their placements
-        System.out.println(function.toString());
+    public static void main(String[] args) {
+        Polynomial po1 = new Polynomial(new double[]{5, 3, 6, 8, 9});
+        po1.print();
+        Polynomial po2 = new Polynomial(new double[]{9, 8, 7, 6, 4});
+        po2.print();
+        Polynomial dpo1 = po1.differentiate();
+        dpo1.print();
+        Polynomial po3 = po2.add(dpo1);
+        po3.print();
     }
 }
