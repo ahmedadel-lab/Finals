@@ -1,9 +1,9 @@
 True or False:
 
 A. false
-B. true
+B. false (within the package only)
 C. false
-D. ??
+D. true
 E. false
 F. ??
 G. false
