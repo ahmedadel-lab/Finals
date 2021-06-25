@@ -13,6 +13,6 @@ D. (true) : There's four access modifiers in java which are:
 E. (true): Inner classes are the classes which is defined in another Outer 	class
 F. (true): toString method is a method inherited from Object class with is 	the Superclass of all classes in java
 G. (false): ArithmeticException is a RuntimeException which is an 	Unchecked Exception
-H. (false): Two Obtions:
+H. (false): Two Options:
 	-implements Runnable
-	-extends Threads
+	-extends Threads (However Thread class already implements Runnable interface)

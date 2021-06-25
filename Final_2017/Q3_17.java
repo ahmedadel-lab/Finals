@@ -71,11 +71,13 @@ class Bag{
     }
 
     public boolean canEnclose(Bag b){
-        if(b.width < this.width && b.height < this.height && b.depth < this.depth) return true;
-        else if(b.width < this.height && b.height < this.width && b.depth < this.depth) return true;
-        else if(b.width < this.depth && b.height < this.height && b.depth < this.width) return true;
-        else if(b.width < this.width && b.height < this.depth && b.depth < this.height) return true;
-        else return false;
+        if(b.width < width && b.height < height && b.depth < depth) return true;
+        if(b.width < width && b.height < depth && b.depth < height) return true;
+        if(b.width < height && b.height < width && b.depth < depth) return true;
+        if(b.width < height && b.height < depth && b.depth < height) return true;
+        if(b.width < depth && b.height < height && b.depth < width) return true;
+        if(b.width < depth && b.height < width && b.depth < height) return true;
+        return false;
     }
 
     public static int findSmallestBag(Bag[] b, Color colored, boolean wheeled){

@@ -1,33 +1,22 @@
 import java.util.Scanner;
 
 public class Q2_17 {
-    public static int Sum(int r1, int r2){
-        int sum = 0;
-        for(int i = (int)Math.ceil(r1/3); i <= (int)Math.floor(r2/3); i++){
-            sum += i * 3;
-            if(i * 3 % 5 == 0) sum -= i * 3;
+    public static int print_mults(int first, int second){
+        int res = 0;
+        for(int i = first; i <= second; i++){
+            if(i%3 == 0 || i%5 == 0)
+                res += i;
         }
-        for(int i = (int)Math.ceil(r1/5); i <= (int)Math.floor(r2/5); i++){
-            sum += i * 5;
-        }
-        return sum;
+        return res;
     }
 
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Please enter the Range of numbers (two integer values):");
-        int x1 = 0, x2 = 0;
-        while(true){
-            try{
-                x1 = sc.nextInt();
-                x2 = sc.nextInt();
-                break;
-            }
-            catch(Exception e){
-                sc.next();
-                System.out.println("Please Enter Valid Values.");
-            }
-        }
-        System.out.println("The Sum of values within the range you entered is: " + Sum(x1, x2));
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("First integer: ");
+        int first = in.nextInt();
+        System.out.print("Second integer: ");
+        int second = in.nextInt();
+
+        System.out.println(print_mults(first, second));
     }
 }
