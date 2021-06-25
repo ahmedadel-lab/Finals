@@ -4,7 +4,7 @@ public class Q2_17 {
     public static int print_mults(int first, int second){
         int res = 0;
         for(int i = first; i <= second; i++){
-            if(i%3 == 0 || i%5 == 0)
+            if(i % 3 == 0 || i % 5 == 0)
                 res += i;
         }
         return res;

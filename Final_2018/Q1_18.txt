@@ -1,0 +1,10 @@
+A. (false) : Without an explicitly defined constructor, a no-arg constructor is defined by default
+B. (false) : Only SuperClasses can refer to their SubClasses not vice versa, an an example: apple IS-A fruit but not all fruits are apples
+C. (false) : Java only allows one inheritance per class, but multiple implementations per class
+D. (true)
+E. (false) : Final methods are the methods that cannot be Overridden
+F. (xx)
+G. (true) : remember --> immutable objects are the objects without any mutators to their data members (or) data members are declared final
+H. (true) : IOException is a checked Exception
+I. (false) : we should Override run() method, but to start a thread: Object.start()
+F. (xx)
