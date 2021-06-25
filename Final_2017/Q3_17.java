@@ -9,6 +9,15 @@ class Color{
     public String getColor() {
         return color;
     }
+
+    @Override
+    public boolean equals(Object o){
+        if(this == o)
+            return true;
+        if(! (o instanceof Color))
+            return false;
+        return ((Color) o).color.equalsIgnoreCase(this.getColor());
+    }
 }
 
 class Bag{
@@ -93,7 +102,7 @@ class Bag{
         }
         else{
             for(int i = 0; i < b.length; i++){
-                if(b[i].wheels == wheeled && b[i].color == colored && b[i].getVolume() < smallest){
+                if(b[i].wheels == wheeled && b[i].color.equals(colored)  && b[i].getVolume() < smallest){
                     smallest = b[i].getVolume();
                     index = i;
                 }
@@ -106,5 +115,21 @@ class Bag{
 
 
 public class Q3_17 {
+    public static void main(String[] args) {
+        Bag[] bags = new Bag[]{
+                new Bag(45, 65, 1000, new Color("Red"), true),
+                new Bag(66, 84, 21, new Color("Green"), true),
+                new Bag(45, 15, 69, new Color("Blue"), true),
+                new Bag(69, 69, 80, new Color("Pink"), false),
+                new Bag(45, 22, 46, new Color("Red"), true),
+                new Bag(45, 59, 46, new Color("Green"), true)
+        };
 
+        System.out.println(bags[0].canEnclose(bags[1]));
+        System.out.println(bags[0].equals(bags[1]));
+        System.out.println(bags[0].getVolume());
+        System.out.println(bags[0].isLarger(bags[1]));
+        System.out.println(Bag.findSmallestBag(bags, new Color("red"), true));
+    }
 }
+
