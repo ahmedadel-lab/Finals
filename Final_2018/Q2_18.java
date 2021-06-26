@@ -30,8 +30,8 @@ class myStack{
         if(!(o instanceof myStack)) return false;
         if(this.capacity != ((myStack)o).capacity) return false;
         if(this.pointer != ((myStack)o).pointer) return false;
-        for(int i = 0; i < capacity; i++){
-            if(this.stack[i] != ((myStack)o).stack[i]) return false;
+        for(int i = 0; i < pointer; i++){
+            if(this.stack[i].equals(((myStack)o).stack[i])) return false;
         }
         return true;
     }
