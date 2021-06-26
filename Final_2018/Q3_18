@@ -1,0 +1,16 @@
+// The System Prints out the following:
+    A.f1 called
+    B.f1 Called
+    A.f2 Called
+    B.f3 Called
+    -----------
+    A.f1 called
+    C.f1 Called
+    A.f2 Called
+    D.f3 Called
+    -----------
+    A.f1 called
+    C.f1 Called
+    A.f2 Called
+    D.f3 Called
+    F.f3 Called
