@@ -1,0 +1,19 @@
+1- True
+2- False
+3- False
+4- True
+5- True
+6- To tell the compiler that I am going to override method in the parent class, so check if I am doing something wrong.
+7- Unchecked Exception (StringIndexOutOfBoundsException).
+8- You cannot, as it has been overridden by class B.
+9- No, you cannot, as it is illegal in java.
+10- join
+11- add(new Node(), 0, 1)
+12- Test$A.class
+13- The program will run correctly but not multithreaded, as you invoke run method in the PrintChar thread object not
+start method, so the program will execute the public run method implemented in the class, printing on the console
+the 'a' character 4 times followed by 'b' character 4 time in the same line.
+14- The Program will print to the console "test", then will throw an Exception ending the program as we cannot start
+thread object more than one time.
+
+
