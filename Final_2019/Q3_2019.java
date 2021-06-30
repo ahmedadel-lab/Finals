@@ -51,15 +51,26 @@ class Apartment extends ItemForSale{
     public double getArea() {
         return area;
     }
+    public int getAverageSquareMeter() { return averageSquareMeter; }
 
-    public Apartment(String itemName, int price){
+    public Apartment(String itemName, int price, double area, int averageSquareMeter){
         super(itemName, price);
+        this.area = area;
+        this.averageSquareMeter = averageSquareMeter;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if(!(o instanceof Apartment)) return false;
+        if(!super.equals(o)) return false;
+        Apartment i = (Apartment)o;
+        if(this.area != i.area || this.averageSquareMeter != i.averageSquareMeter) return false;
+        return true;
     }
 
     @Override
     public Boolean isGoodDeal(){
-        if(getPrice() < area*averageSquareMeter) return true;
-        return false;
+        return (getPrice() < area * averageSquareMeter);
     }
 }
 
@@ -70,36 +81,47 @@ class Car extends ItemForSale{
     public int getTravelledKM(){
         return travelledKM;
     }
+    public int getNewOfficialPrice() { return newOfficialPrice; }
 
-    public Car(String itemName, int price){
+    public Car(String itemName, int price, int travelledKM, int newOfficialPrice){
         super(itemName, price);
+        this.travelledKM = travelledKM;
+        this.newOfficialPrice = newOfficialPrice;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if(!(o instanceof Car)) return false;
+        if(!super.equals(o)) return false;
+        Car i = (Car)o;
+        if(this.travelledKM != i.travelledKM || this.newOfficialPrice != i.newOfficialPrice) return false;
+        return true;
     }
 
     @Override
     public Boolean isGoodDeal() {
-        if (getPrice() < newOfficialPrice - travelledKM * 250) return true;
-        return false;
+        return (getPrice() < newOfficialPrice - (travelledKM / 1000) * 250);
     }
 }
 
 class Website{
-    private ItemForSale[] collecion;
+    private ItemForSale[] collection;
 
-    public Website(ItemForSale[] collecion){
-        this.collecion = collecion;
+    public Website(ItemForSale[] collection){
+        this.collection = collection;
     }
 
     public void listAll(){
-        for(ItemForSale i : collecion) System.out.println(i);
+        for(ItemForSale i : collection) System.out.println(i);
     }
 
     public void discountItems(int percent, int[] indices){
-        for(int index: indices) collecion[index].offerDiscount(percent);
+        for(int index: indices) collection[index].offerDiscount(percent);
     }
 
     public int countGoodAptDeals(int priceLimit, double minArea, boolean goodDealFlag){
         int res = 0;
-        for(ItemForSale i : collecion){
+        for(ItemForSale i : collection){
             if(!(i instanceof Apartment)) continue;
             Apartment app = (Apartment) i;
             if((app.getPrice() <= priceLimit && app.getArea() >= minArea) && (!goodDealFlag || app.isGoodDeal())) res++;
@@ -109,7 +131,7 @@ class Website{
 
     public Car[] searchForCar(int priceLimit, int maxKM, boolean goodDealFlag){
         ArrayList<Car> results = new ArrayList();
-        for(ItemForSale i : collecion){
+        for(ItemForSale i : collection){
             if(!(i instanceof Car)) continue;
             Car car = (Car) i;
             if(car.getPrice() <= priceLimit && car.getTravelledKM() <= maxKM && (!goodDealFlag || car.isGoodDeal()))
@@ -121,10 +143,10 @@ class Website{
     public static int compareWebsites(Website first, Website second){
         int firstGood = 0;
         int secondGood = 0;
-        for(ItemForSale i : first.collecion){
+        for(ItemForSale i : first.collection){
             if(i.isGoodDeal()) firstGood++;
         }
-        for(ItemForSale i : second.collecion){
+        for(ItemForSale i : second.collection){
             if(i.isGoodDeal()) secondGood++;
         }
         return (firstGood > secondGood) ? 1 : (firstGood < secondGood) ? -1 : 0;
