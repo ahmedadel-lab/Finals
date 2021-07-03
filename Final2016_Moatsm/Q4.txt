@@ -1,8 +1,0 @@
-C.f1 called
-A.f2 called
-B.f3 called
-C.f1 called
-D.f1 called
-A.f2 called
-B.f3 called
-F.f3 called
