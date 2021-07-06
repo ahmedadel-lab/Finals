@@ -1,7 +1,7 @@
 True or False Questions:
 ------------------------
 
-A. (false) : java arrays can be allocated both Statically and Dynamically.
+A. (true)
 B. (true)
 C. (true)
 D. (true) : There's four access modifiers in java which are:
