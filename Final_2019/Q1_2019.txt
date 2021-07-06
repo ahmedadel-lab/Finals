@@ -8,7 +8,7 @@
 8- You cannot, as it has been overridden by class B.
 9- No, you cannot, as it is illegal in java.
 10- join
-11- add(new Node(), 0, 1)
+11- add(new Node(), 1, 0)
 12- Test$A.class
 13- The program will run correctly but not multithreaded, as you invoke run method in the PrintChar thread object not
 start method, so the program will execute the public run method implemented in the class, printing on the console
