@@ -7,4 +7,4 @@ F. (true)
 G. (true) : remember --> immutable objects are the objects without any mutators to their data members (or) data members are declared final
 H. (true) : IOException is a checked Exception
 I. (false) : we should Override run() method, but to start a thread: Object.start()
-F. (xx)
+F. (true)
