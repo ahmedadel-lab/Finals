@@ -6,8 +6,8 @@ B. (true)
 C. (true)
 D. (true) : There's four access modifiers in java which are:
 	- Private: Accessed within the same class ONLY
-	- Protected: Accessed from within the same Package, in addition 	sub-classes from within another packages
 	- Default: Accessed within the same package ONLY
+	- Protected: Accessed from within the same Package, in addition 	sub-classes from within another packages
 	- Public: Accessed from any package
 
 E. (true): Inner classes are the classes which is defined in another Outer 	class
